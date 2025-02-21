@@ -18,20 +18,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const productsContainer = document.getElementById('products');
 
-    // Fetch stored products from localStorage, or use default products if not present
-    let products = JSON.parse(localStorage.getItem('products')) || [
-        { name: 'Gemstones', description: 'Beautiful and rare gemstones.', image: image1 },
-        { name: 'Green Chili Pepper', description: 'Spicy and fresh green chili pepper.', image: image2 },
-        { name: 'Green Pepper', description: 'Crisp and vibrant green pepper.', image: image3 },
-        { name: 'Mayonnaise', description: 'Creamy and rich mayonnaise.', image: image4 },
-        { name: 'Soap', description: 'Gentle and fragrant soap.', image: image5 },
-        { name: 'CBD Lotion', description: 'Soothing CBD-infused lotion.', image: image6 },
-        { name: 'Michael Kors Watch', description: 'Elegant Michael Kors watch.', image: image7 },
-        { name: 'Nikon Camera', description: 'High-quality Nikon camera.', image: image8 },
-        { name: 'Lexar SD Card', description: 'Reliable Lexar SD card.', image: image9 },
-        { name: 'Coca-Cola Zero', description: 'Refreshing Coca-Cola Zero.', image: image10 },
-        { name: 'Camera Lens', description: 'Versatile camera lens.', image: image11 },
-        { name: 'Fujifilm Camera', description: 'Compact Fujifilm camera.', image: image12 }
+    const products = [
+        { name: 'Gemstones', description: 'Beautiful and rare gemstones.', image: image1, price: '$100' },
+        { name: 'Green Chili Pepper', description: 'Spicy and fresh green chili pepper.', image: image2, price: '$2' },
+        { name: 'Green Pepper', description: 'Crisp and vibrant green pepper.', image: image3, price: '$1.5' },
+        { name: 'Mayonnaise', description: 'Creamy and rich mayonnaise.', image: image4, price: '$3' },
+        { name: 'Soap', description: 'Gentle and fragrant soap.', image: image5, price: '$4' },
+        { name: 'CBD Lotion', description: 'Soothing CBD-infused lotion.', image: image6, price: '$25' },
+        { name: 'Michael Kors Watch', description: 'Elegant Michael Kors watch.', image: image7, price: '$250' },
+        { name: 'Nikon Camera', description: 'High-quality Nikon camera.', image: image8, price: '$500' },
+        { name: 'Lexar SD Card', description: 'Reliable Lexar SD card.', image: image9, price: '$20' },
+        { name: 'Coca-Cola Zero', description: 'Refreshing Coca-Cola Zero.', image: image10, price: '$1' },
+        { name: 'Camera Lens', description: 'Versatile camera lens.', image: image11, price: '$150' },
+        { name: 'Fujifilm Camera', description: 'Compact Fujifilm camera.', image: image12, price: '$400' }
     ];
 
     products.forEach(product => {
@@ -60,12 +59,17 @@ document.addEventListener("DOMContentLoaded", () => {
         description.classList.add('card-text');
         description.textContent = product.description;
 
+        const price = document.createElement('span');
+        price.classList.add('card-text', 'float-start');
+        price.textContent = product.price;
+
         const addToCart = document.createElement('button');
         addToCart.classList.add('btn', 'btn-success', 'float-end');
         addToCart.textContent = "Add to cart";
 
         cardBody.appendChild(title);
         cardBody.appendChild(description);
+        cardBody.appendChild(price);
         cardBody.appendChild(addToCart);
         cardDiv.appendChild(img);
         cardDiv.appendChild(cardBody);
