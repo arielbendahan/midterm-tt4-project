@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const productsContainer = document.getElementById('products');
 
-    const products = [
+    // Fetch stored products from localStorage, or use default products if not present
+    let products = JSON.parse(localStorage.getItem('products')) || [
         { name: 'Gemstones', description: 'Beautiful and rare gemstones.', image: image1 },
         { name: 'Green Chili Pepper', description: 'Spicy and fresh green chili pepper.', image: image2 },
         { name: 'Green Pepper', description: 'Crisp and vibrant green pepper.', image: image3 },
